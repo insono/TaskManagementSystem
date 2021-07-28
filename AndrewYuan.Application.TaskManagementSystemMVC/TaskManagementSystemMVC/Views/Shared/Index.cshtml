@@ -1,0 +1,46 @@
+﻿@model List<ApplicationCore.Models.UserCardResponseModel> 
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>
+    Employees Avaliable: @ViewBag.UsersCount
+</h2>
+
+<div class="rounded">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var user in Model)
+            {
+                <div class="col-3">
+                    <partial name="_UserCard" model="user"/>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<h2>Controls</h2>
+<table class="table">
+    <tbody>
+        <tr>
+            <th scope="row">Users</th>
+            <td><a class="text-center" asp-controller="Users" asp-action="Register">Add</a></td>
+            <td><a class="text-center" asp-controller="Users" asp-action="Update">Update</a></td>
+            <td><a class="text-center" asp-controller="Users" asp-action="Delete">Delete</a></td>
+        </tr>
+        <tr>
+            <th scope="row">Tasks</th>
+            <td><a class="text-center" asp-controller="Tasks" asp-action="Register">Add</a></td>
+            <td>Update</td>
+            <td>Delete</td>
+        </tr>
+        <tr>
+            <th scope="row">TasksHistory</th>
+            <td>Add</td>
+            <td>Update</td>
+            <td>Delete</td>
+        </tr>
+    </tbody>
+</table>

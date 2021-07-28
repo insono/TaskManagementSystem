@@ -1,0 +1,78 @@
+﻿@model ApplicationCore.Models.UserTasksResponseModel
+
+@{
+    ViewData["Title"] = Model.Fullname;
+}
+
+<div>
+    <h1>
+        @Model.Fullname's Tasks UserID:@Model.Id
+    </h1>
+</div>
+
+
+<div class="card shadow bg-light">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Tasks in Model.myTasks)
+            {
+                <tr>
+                    <th scope="row">@Tasks.Id</th>
+                    <td>@Tasks.Title</td>
+                    <td>@Tasks.Description</td>
+                    <td>@Tasks.DueDate</td>
+                    <td>@Tasks.Priority</td>
+                    <td>@Tasks.Remarks</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <h2>
+        Completed Tasks
+    </h2>
+</div>
+
+<div class="card shadow bg-light">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Due Date</th>
+                <th scope="col">Completed</th>
+                <th scope="col">Remarks</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Tasks in Model.completedTasks)
+            {
+                <tr>
+                    <th scope="row">@Tasks.TaskId</th>
+                    <td>@Tasks.Title</td>
+                    <td>@Tasks.Description</td>
+                    <td>@Tasks.DueDate</td>
+                    <td>@Tasks.Completed</td>
+                    <td>@Tasks.Remarks</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    <a class="bottomNav" onclick="history.go(-1); return false;" href="#">Back</a>
+</div>

@@ -1,0 +1,7 @@
+﻿@model ApplicationCore.Models.UserCardResponseModel
+
+<div class="card mb-4 shadow bg-light">
+    <a class="text-center"  asp-controller="Users" asp-action="Tasks" asp-route-id="@Model.Id">
+        @Model.Fullname
+    </a>
+</div>
